@@ -2,6 +2,8 @@ import csv
 from pkgutil import get_data
 from wsgiref.validate import validator
 from xml.etree.ElementTree import ElementTree, Element, SubElement
+from datetime import datetime
+from XML.api import get_data
 
 def converter(filename):
     with open('/assets/IS.csv') as file:
@@ -19,19 +21,20 @@ def converter(filename):
                 break
             print(row)
 
-            # verificar se o ano existe
-            game_year = row['game_End_Year']
+            # Extract the year from the date
+            game_date = row['Date']
+            game_year = datetime.strptime(game_date, '%Y-%m-%d').year
 
             if game_year not in years:
                 years[game_year] = len(years) + 1
 
-            if ano is None or ano != row['game_End_Year']:
-                ano = row['Season_End_Year']
+            if ano is None or ano != game_year:
+                ano = game_year
                 season = SubElement(root, 'game_End_Year', {
                     'id': str(years[game_year])
                 })
 
-            game = SubElement('game', {
+            game = SubElement(season, 'game', {
                 'id': str(num + 1)
             })
 
@@ -39,28 +42,45 @@ def converter(filename):
             date.text = row['Date']
 
             home_team = SubElement(game, 'Home_team')
-            home_team.text = row['Home_team']
+            home_team.text = row['home_team']
 
             away_team = SubElement(game, 'Away_team')
-            away_team.text = row['Away_team']
+            away_team.text = row['away_team']
 
             home_score = SubElement(game, 'Home_score')
-            home_score.text = row['Home_score']
+            home_score.text = row['home_score']
 
             away_score = SubElement(game, 'Away_score')
-            away_score.text = row['Away_score']
+            away_score.text = row['away_score']
+
+            tournament_element = SubElement(game, 'Tournament')
+            tournament_element.text = row['tournament']
+
+            city_element = SubElement(game, 'City')
+            city_element.text = row['city']
+
+            country_element = SubElement(game, 'Country')
+            country_element.text = row['country']
 
             ftr = SubElement(game, 'FTR')
             ftr.text = row['FTR']
 
             if num < 1:
-                city = row['Home'].split()
-                data = get_data(city[0])
+                city = row['city']
+                country = row['country']
+
+                # Use city and country to get data (modify get_data function accordingly)
+                data = get_data(city + ',' + country)
+
                 if len(data) > 0:
                     coordinates = SubElement(game, "Coordinates", {
                         'lat': data[0]['lat'],
                         'lon': data[0]['lon']
                     })
+                    city_element = SubElement(coordinates, 'City')
+                    city_element.text = city
+                    country_element = SubElement(coordinates, 'Country')
+                    country_element.text = country
 
         y = SubElement(root, 'Years')
 

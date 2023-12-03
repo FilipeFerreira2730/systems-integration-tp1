@@ -14,7 +14,8 @@ try:
     cursor.execute("SELECT * FROM teachers")
 
     print("Teachers list:")
-    for teacher in cursor:
+    records = cursor.fetchall()
+    for teacher in records:
         print(f" > {teacher[0]}, from {teacher[1]}")
 
 except (Exception, psycopg2.Error) as error:

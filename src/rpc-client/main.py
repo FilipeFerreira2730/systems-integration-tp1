@@ -6,7 +6,7 @@ from decimal import Decimal
 print("connecting to server...")
 server = xmlrpc.client.ServerProxy('http://0.0.0.0:9000')
 
-while True:
+"""while True:
     print("-----Menu------")
     print("0-Sair")
     print("\n\n")
@@ -38,4 +38,4 @@ while True:
             print("A sair ...")
             break
     except Exception :
-        print("Opcao Invalida!!!")
+        print("Opcao Invalida!!!")"""
