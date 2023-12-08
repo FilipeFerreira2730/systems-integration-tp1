@@ -25,7 +25,7 @@ def validator(filename):
         result = xmlschema.validate(xml_doc)
 
         # Print the validation result
-        print(f"Validation Result: {result}")
+        print(f"Result: {result}")
 
         # Print any validation errors
         if not result:
