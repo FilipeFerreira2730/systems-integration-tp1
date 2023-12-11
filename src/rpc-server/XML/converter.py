@@ -1,12 +1,12 @@
 import csv
 from pkgutil import get_data
-from wsgiref.validate import validator
+#from wsgiref.validate import validator
 from xml.etree.ElementTree import ElementTree, Element, SubElement
 from datetime import datetime
-from XML.api import get_data
+from api import get_data
 
 def converter(filename):
-    with open('src/assets/IS.csv') as file:
+    with open('/data/test.csv') as file:
         csv_f = csv.DictReader(file)
         data = []
 
@@ -15,8 +15,9 @@ def converter(filename):
         games = {}
 
         ano = None
-
+        count = 0
         for num, row in enumerate(csv_f):
+            count = count + 1
             if num == 20000:
                 break
             print(row)
@@ -38,8 +39,8 @@ def converter(filename):
                 'id': str(num + 1)
             })
 
-            date = SubElement(game, 'Date')
-            date.text = row['Date']
+            date = SubElement(game, 'date')
+            date.text = row['date']
 
             home_team = SubElement(game, 'Home_team')
             home_team.text = row['home_team']
@@ -56,21 +57,12 @@ def converter(filename):
             tournament_element = SubElement(game, 'Tournament')
             tournament_element.text = row['tournament']
 
-            city_element = SubElement(game, 'City')
-            city_element.text = row['city']
-
-            country_element = SubElement(game, 'Country')
-            country_element.text = row['country']
-
-            ftr = SubElement(game, 'FTR')
-            ftr.text = row['FTR']
-
-            if num < 1:
+            if num < count:
                 city = row['city']
                 country = row['country']
 
                 # Use city and country to get data (modify get_data function accordingly)
-                data = get_data(city + ',' + country)
+                data = get_data(city, country)
 
                 if len(data) > 0:
                     coordinates = SubElement(game, "Coordinates", {
@@ -91,5 +83,4 @@ def converter(filename):
             yy.text = str(data)
 
         et = ElementTree(root)
-        et.write(f'./rpc-server/XML/{filename}.xml')
-        validator(filename)
+        et.write(f'{filename}.xml')

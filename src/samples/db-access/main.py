@@ -10,13 +10,11 @@ try:
                                   port="5432",
                                   database="is")
 
-    cursor = connection.cursor()
-    cursor.execute("SELECT * FROM teachers")
-
-    print("Teachers list:")
-    records = cursor.fetchall()
-    for teacher in records:
-        print(f" > {teacher[0]}, from {teacher[1]}")
+    with connection.cursor() as cursor:
+        with open('../rpc-server/XML/output.xml') as f:
+            file_data = f.read()
+            filename = "ola"
+            a = cursor.execute("INSERT INTO imported_documents(file_name, xml) VALUES (%s, %s)", (filename, file_data))
 
 except (Exception, psycopg2.Error) as error:
     print("Failed to fetch data", error)

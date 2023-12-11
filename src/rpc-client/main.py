@@ -8,6 +8,15 @@ server = xmlrpc.client.ServerProxy('http://is-rpc-server:9000')
 
 while True:
     print("-----Menu------")
+    print("1-Converter ficheiro")
+    print("2-Inserir ficheiro na base de dados")
+    print("3-Eliminar Ficheiro")
+    print("4-Jogos do mundial")
+    print("5-Jogos de uma seleção")
+    print("6-Cidade e País com mais jogos") """rever esta querie"""
+    print("7-Total de golos de uma seleção")
+    print("8-Total de golos do Europeu")
+    print("9-Média de golos de todos os jogos de seleções")
     print("0-Sair")
     print("\n\n")
     #try:
