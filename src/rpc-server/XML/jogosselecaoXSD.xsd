@@ -1,0 +1,39 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Jogoselecao">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="game_End_Year">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="game">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Date" type="xs:date"/>
+                                        <xs:element name="Home_team" type="xs:string"/>
+                                        <xs:element name="Away_team" type="xs:string"/>
+                                        <xs:element name="Home_score" type="xs:string"/>
+                                        <xs:element name="Away_score" type="xs:string"/>
+                                        <xs:element name="Tournament" type="xs:string"/>
+                                        <xs:element name="Coordinates" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="City" type="xs:string"/>
+                                                    <xs:element name="Country" type="xs:string"/>
+                                                </xs:sequence>
+                                                <xs:attribute name="lat" type="xs:decimal"/>
+                                                <xs:attribute name="lon" type="xs:decimal"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:string" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="num" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
