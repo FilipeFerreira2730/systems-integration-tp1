@@ -1,12 +1,12 @@
 import csv
-#from pkgutil import get_data
 #from wsgiref.validate import validator
 from xml.etree.ElementTree import ElementTree, Element, SubElement
 from datetime import datetime
-from XML.api import get_data
+from .api import get_data
 
 def converter(filename):
-    with open('/data/test.csv') as file:
+
+    with open('/app/XML/assets/test.csv') as file:
         csv_f = csv.DictReader(file)
         data = []
 

@@ -10,6 +10,8 @@ RUN npm install -g nodemon
 # upgrade pip
 RUN python -m pip install --upgrade pip
 
+RUN pip install lxml
+
 # dependencies from requirements.txt
 COPY ./requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt

@@ -13,7 +13,7 @@ from functions.queries import jogos_mundial, jogos_selecao, cidade_pais_mais_jog
 class RequestHandler(SimpleXMLRPCRequestHandler):
     rpc_paths = ('/RPC2',)
 
-with SimpleXMLRPCServer(('0.0.0.0', 9000), requestHandler=RequestHandler) as server:
+with SimpleXMLRPCServer(('0.0.0.0', 9000), requestHandler=RequestHandler, allow_none=True) as server:
     server.register_introspection_functions()
 
 
