@@ -11,10 +11,12 @@ try:
                                   database="is")
 
     with connection.cursor() as cursor:
-        with open('../rpc-server/XML/output.xml') as f:
-            file_data = f.read()
-            filename = "ola"
-            a = cursor.execute("INSERT INTO imported_documents(file_name, xml) VALUES (%s, %s)", (filename, file_data))
+        print(cursor)
+        #with open('test.xml') as f:
+            #file_data = f.read()
+            #filename = "ola"
+            #a = cursor.execute("INSERT INTO imported_documents(file_name, xml) VALUES (%s, %s)", (filename, file_data))
+           # print('azeite')
 
 except (Exception, psycopg2.Error) as error:
     print("Failed to fetch data", error)

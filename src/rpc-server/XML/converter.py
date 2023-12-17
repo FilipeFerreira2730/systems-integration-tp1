@@ -1,9 +1,9 @@
 import csv
-from pkgutil import get_data
+#from pkgutil import get_data
 #from wsgiref.validate import validator
 from xml.etree.ElementTree import ElementTree, Element, SubElement
 from datetime import datetime
-from api import get_data
+from XML.api import get_data
 
 def converter(filename):
     with open('/data/test.csv') as file:
