@@ -33,47 +33,59 @@ while True:
         aux = input()
         print("Nome do ficheiro na BD: ")
         aux2 = input()
-        server.insertData(aux,aux2)
+        server.insertData(aux, aux2)
     elif option == 3:
         print("Delete Data")
         print("Nome do ficheiro")
         aux = input()
         server.deleteData(aux)
+
+        pass
+
     elif option == 4:
-        a = server.jogos_mundial()
+        print("Equipa: ")
+        equipa = input()
+        a = server.jogos_fora(equipa)
         aux = server.get_connection(a)
-        print("Jogos do mundial:", aux)
+        print("Total de jogos Fora da equipa:", aux)
+
     elif option == 5:
-        print("Selecao: ")
-        selecao = input()
-        a = server.jogos_fora(selecao)
+        a = server.total_vitorias()
         aux = server.get_connection(a)
-        print("Jogos da selecao:", aux)
+        print("Nº de vitorias por equipas:")
+        for row in aux:
+            print(row)
+
     elif option == 6:
-        print("Cidade e País com mais jogos:")
-        a = server.cidade_pais_mais_jogos()
+        a = server.result_jogos()
         aux = server.get_connection(a)
-        print("Cidade e País com mais jogos:", aux)
+        print("Resultados de todos os jogos:")
+        for row in aux:
+            print(row)
 
     elif option == 7:
-        print("Total de golos de uma seleção:")
-        print("Selecao: ")
-        selecao = input()
-        a = server.total_golos_selecao(selecao)
+        print("Indique dois clubes")
+        print("Clube Visitado:")
+        home = input()
+        print("Clube Visitante:")
+        away = input()
+        a = server.datas_jogos(home, away)
         aux = server.get_connection(a)
-        print(f"Total de golos de {selecao}:", aux)
+        print("Datas dos jogos")
+        for row in aux:
+            print(row)
 
     elif option == 8:
-        print("Total de golos do Europeu:")
-        a = server.total_golos_uefa_euro()
-        aux = server.get_connection(a)
-        print("Total de golos do Europeu:", aux)
+        a = server.media_golos()
+        aux = str(server.get_connection(a))
+        print("Media de golos de todos os jogos:")
+        print(aux)
 
     elif option == 9:
-        print("Média de golos de todos os jogos de seleções:")
-        a = server.media_golos_todos_jogos()
+        a = server.count_jogos()
         aux = server.get_connection(a)
-        print("Média de golos de todos os jogos de seleções:", aux)
+        print("Nº de vitorias em casa, empates e vitorias fora")
+        print(aux)
 
     elif option == 0:
         print("A sair ...")

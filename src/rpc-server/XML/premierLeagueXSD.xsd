@@ -1,0 +1,57 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="premierLeague">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="Season_End_Year">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="Wk">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" name="game">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Date" type="xs:date"/>
+                                                    <xs:element name="Home" type="xs:string"/>
+                                                    <xs:element name="HomeGoals" type="xs:string"/>
+                                                    <xs:element name="AwayGoals" type="xs:string"/>
+                                                    <xs:element name="Away" type="xs:string"/>
+                                                    <xs:element name="FTR" type="xs:string"/>
+                                                    <xs:element name="Coordinates" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:attribute name="lat" type="xs:decimal"/>
+                                                            <xs:attribute name="lon" type="xs:decimal"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="id" type="xs:string" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="num" type="xs:string" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Years">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="Year">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="id" type="xs:string" use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

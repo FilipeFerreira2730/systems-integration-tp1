@@ -1,0 +1,199 @@
+<Jogoselecao>
+    <game_End_Year id="1">
+        <game id="1">
+            <date>1990-01-12</date>
+            <Home_team>Algeria</Home_team>
+            <Away_team>Mali</Away_team>
+            <Home_score>5</Home_score>
+            <Away_score>0</Away_score>
+            <Tournament>Friendly</Tournament>
+            <Coordinates lat="48.8588897" lon="2.3200410217200766">
+                <City>Paris</City>
+                <Country>France</Country>
+            </Coordinates>
+        </game>
+        <game id="2">
+            <date>1990-01-14</date>
+            <Home_team>Algeria</Home_team>
+            <Away_team>Cameroon</Away_team>
+            <Home_score>3</Home_score>
+            <Away_score>1</Away_score>
+            <Tournament>Friendly</Tournament>
+            <Coordinates lat="48.8588897" lon="2.3200410217200766">
+                <City>Paris</City>
+                <Country>France</Country>
+            </Coordinates>
+        </game>
+        <game id="3">
+            <date>1990-01-17</date>
+            <Home_team>Greece</Home_team>
+            <Away_team>Belgium</Away_team>
+            <Home_score>2</Home_score>
+            <Away_score>0</Away_score>
+            <Tournament>Friendly</Tournament>
+            <Coordinates lat="37.9755648" lon="23.7348324">
+                <City>Athens</City>
+                <Country>Greece</Country>
+            </Coordinates>
+        </game>
+        <game id="4">
+            <date>1990-01-17</date>
+            <Home_team>Mexico</Home_team>
+            <Away_team>Argentina</Away_team>
+            <Home_score>2</Home_score>
+            <Away_score>0</Away_score>
+            <Tournament>Friendly</Tournament>
+            <Coordinates lat="34.0536909" lon="-118.242766">
+                <City>Los Angeles</City>
+                <Country>United States</Country>
+            </Coordinates>
+        </game>
+        <game id="5">
+            <date>1990-01-20</date>
+            <Home_team>Malawi</Home_team>
+            <Away_team>Tanzania</Away_team>
+            <Home_score>2</Home_score>
+            <Away_score>2</Away_score>
+            <Tournament>Friendly</Tournament>
+            <Coordinates lat="-26.4462848" lon="31.2083781">
+                <City>Lobamba</City>
+                <Country>Eswatini</Country>
+            </Coordinates>
+        </game>
+        <game id="6">
+            <date>1990-01-20</date>
+            <Home_team>Eswatini</Home_team>
+            <Away_team>Botswana</Away_team>
+            <Home_score>3</Home_score>
+            <Away_score>1</Away_score>
+            <Tournament>Friendly</Tournament>
+            <Coordinates lat="-26.4462848" lon="31.2083781">
+                <City>Lobamba</City>
+                <Country>Eswatini</Country>
+            </Coordinates>
+        </game>
+        <game id="7">
+            <date>1990-01-21</date>
+            <Home_team>Botswana</Home_team>
+            <Away_team>Malawi</Away_team>
+            <Home_score>2</Home_score>
+            <Away_score>2</Away_score>
+            <Tournament>Friendly</Tournament>
+            <Coordinates lat="-26.4462848" lon="31.2083781">
+                <City>Lobamba</City>
+                <Country>Eswatini</Country>
+            </Coordinates>
+        </game>
+        <game id="8">
+            <date>1990-01-21</date>
+            <Home_team>Kuwait</Home_team>
+            <Away_team>France</Away_team>
+            <Home_score>0</Home_score>
+            <Away_score>1</Away_score>
+            <Tournament>Friendly</Tournament>
+            <Coordinates lat="29.3796532" lon="47.9734174">
+                <City>Kuwait City</City>
+                <Country>Kuwait</Country>
+            </Coordinates>
+        </game>
+        <game id="9">
+            <date>1990-01-21</date>
+            <Home_team>Eswatini</Home_team>
+            <Away_team>Tanzania</Away_team>
+            <Home_score>0</Home_score>
+            <Away_score>1</Away_score>
+            <Tournament>Friendly</Tournament>
+            <Coordinates lat="-26.4462848" lon="31.2083781">
+                <City>Lobamba</City>
+                <Country>Eswatini</Country>
+            </Coordinates>
+        </game>
+        <game id="10">
+            <date>1990-01-23</date>
+            <Home_team>Botswana</Home_team>
+            <Away_team>Tanzania</Away_team>
+            <Home_score>0</Home_score>
+            <Away_score>0</Away_score>
+            <Tournament>Friendly</Tournament>
+            <Coordinates lat="-26.4462848" lon="31.2083781">
+                <City>Lobamba</City>
+                <Country>Eswatini</Country>
+            </Coordinates>
+        </game>
+        <game id="11">
+            <date>1990-01-24</date>
+            <Home_team>France</Home_team>
+            <Away_team>German DR</Away_team>
+            <Home_score>3</Home_score>
+            <Away_score>0</Away_score>
+            <Tournament>Friendly</Tournament>
+            <Coordinates lat="29.3796532" lon="47.9734174">
+                <City>Kuwait City</City>
+                <Country>Kuwait</Country>
+            </Coordinates>
+        </game>
+        <game id="12">
+            <date>1990-01-24</date>
+            <Home_team>Liberia</Home_team>
+            <Away_team>Senegal</Away_team>
+            <Home_score>0</Home_score>
+            <Away_score>1</Away_score>
+            <Tournament>Friendly</Tournament>
+            <Coordinates lat="10.3147618" lon="9.8454417">
+                <City>Bauchi</City>
+                <Country>Nigeria</Country>
+            </Coordinates>
+        </game>
+        <game id="13">
+            <date>1990-01-25</date>
+            <Home_team>Nigeria</Home_team>
+            <Away_team>Ivory Coast</Away_team>
+            <Home_score>2</Home_score>
+            <Away_score>0</Away_score>
+            <Tournament>Friendly</Tournament>
+            <Coordinates lat="10.3147618" lon="9.8454417">
+                <City>Bauchi</City>
+                <Country>Nigeria</Country>
+            </Coordinates>
+        </game>
+        <game id="14">
+            <date>1990-01-25</date>
+            <Home_team>United Arab Emirates</Home_team>
+            <Away_team>Egypt</Away_team>
+            <Home_score>1</Home_score>
+            <Away_score>2</Away_score>
+            <Tournament>Friendly</Tournament>
+            <Coordinates lat="24.4538352" lon="54.3774014">
+                <City>Abu Dhabi</City>
+                <Country>United Arab Emirates</Country>
+            </Coordinates>
+        </game>
+        <game id="15">
+            <date>1990-01-26</date>
+            <Home_team>Kuwait</Home_team>
+            <Away_team>German DR</Away_team>
+            <Home_score>1</Home_score>
+            <Away_score>2</Away_score>
+            <Tournament>Friendly</Tournament>
+            <Coordinates lat="29.3796532" lon="47.9734174">
+                <City>Kuwait City</City>
+                <Country>Kuwait</Country>
+            </Coordinates>
+        </game>
+        <game id="16">
+            <date>1990-01-27</date>
+            <Home_team>Ivory Coast</Home_team>
+            <Away_team>Liberia</Away_team>
+            <Home_score>1</Home_score>
+            <Away_score>0</Away_score>
+            <Tournament>Friendly</Tournament>
+            <Coordinates lat="10.3147618" lon="9.8454417">
+                <City>Bauchi</City>
+                <Country>Nigeria</Country>
+            </Coordinates>
+        </game>
+    </game_End_Year>
+    <Years>
+        <Year id="1">1990</Year>
+    </Years>
+</Jogoselecao>
