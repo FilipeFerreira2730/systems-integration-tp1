@@ -11,7 +11,6 @@ def converter(filename):
 
         root = Element('premierLeague')
         years = {}
-        games = {}
 
         ano = None
         jornada = None

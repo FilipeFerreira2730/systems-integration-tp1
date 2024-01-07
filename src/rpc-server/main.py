@@ -8,7 +8,7 @@ from functions.Connection import get_connection
 from XML.softDeleteExp import deleteData
 from functions.string_length import string_length
 from functions.string_reverse import string_reverse
-from functions.queries import jogos_fora, total_vitorias, result_jogos, media_golos, datas_jogos, count_jogos
+from functions.queries import jogos_casa, jogos_ano, resultado_jogos, total_golos, media_golos_equipa, numero_vitorias
 class RequestHandler(SimpleXMLRPCRequestHandler):
     rpc_paths = ('/RPC2',)
 
@@ -39,12 +39,12 @@ with SimpleXMLRPCServer(('0.0.0.0', 9000), requestHandler=RequestHandler, allow_
     server.register_function(validator)
     server.register_function(get_connection)
     server.register_function(deleteData)
-    server.register_function(jogos_fora)
-    server.register_function(total_vitorias)
-    server.register_function(result_jogos)
-    server.register_function(media_golos)
-    server.register_function(datas_jogos)
-    server.register_function(count_jogos)
+    server.register_function(jogos_casa)
+    server.register_function(jogos_ano)
+    server.register_function(resultado_jogos)
+    server.register_function(total_golos)
+    server.register_function(media_golos_equipa)
+    server.register_function(numero_vitorias)
     
 
     # start the server

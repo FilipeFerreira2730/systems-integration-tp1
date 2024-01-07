@@ -1,19 +1,16 @@
+def jogos_casa(equipa):
 
-
-def jogos_fora(equipa):
-
-    a = (f"select unnest(xpath('count(/premierLeague/Season_End_Year/Wk/game[Away=\"{equipa}\"])', xml)) "
+    a = (f"select unnest(xpath('count(/premierLeague/Season_End_Year/Wk/game[Home=\"{equipa}\"])', xml)) "
             f"from imported_documents where file_name = 'output.xml';")
     return a
 
-
-def total_vitorias():
-    a = f"select unnest(array_cat( xpath('/premierLeague/Season_End_Year/Wk/game[FTR=\"H\"]/Home/text()', xml)::text[]," \
-        f" xpath('/premierLeague/Season_End_Year/Wk/game[FTR=\"A\"]/Away/text()', xml)::text[]))    as winners, " \
-        f"count(*) as n_wins from imported_documents where file_name = 'output.xml' group by winners order by n_wins desc;"
+def jogos_ano(ano):
+    a = (f"select unnest(xpath('//premierLeague/Season_End_Year[@id=\"{ano}\"]/Wk/game', xml)), "
+         f"count(*) as number_of_games "
+         f"from imported_documents where file_name = 'output.xml'")
     return a
 
-def result_jogos():
+def resultado_jogos():
     a = (f"select home,away,home_goals || '-' || away_goals as score from ("
          f"select unnest(xpath('/premierLeague/Season_End_Year/Wk/game/Home/text()', xml))::text as home,"
          f"unnest(xpath('/premierLeague/Season_End_Year/Wk/game/Away/text()', xml))::text as away,"
@@ -22,26 +19,42 @@ def result_jogos():
          f"from imported_documents where file_name = 'output.xml') as t;")
     return a
 
-def media_golos():
-    a = (f"select avg(score)::float as AverageGoals from (select club, clubAway, home, away, sum(home + away) as score "
-         f"from (select unnest(xpath('/premierLeague/Season_End_Year/Wk/game/HomeGoals/text()', xml))::text::int as home, "
-         f"unnest(xpath('/premierLeague/Season_End_Year/Wk/game/AwayGoals/text()', xml))::text::int as away, "
-         f"unnest(xpath('/premierLeague/Season_End_Year/Wk/game/Home/text()', xml))::text           as club, "
-         f"unnest(xpath('/premierLeague/Season_End_Year/Wk/game/Away/text()', xml))::text           as clubAway "
-         f"from imported_documents where file_name = 'output.xml' group by home, away, club, clubAway) as l "
-         f"group by l.home, l.away, l.club, l.clubAway) as t;")
+def total_golos():
+    a = (f"select sum(home_goals + away_goals) as total_golos from ("
+         f"select unnest(xpath('//premierLeague/Season_End_Year/Wk/game/HomeGoals/text()', xml))::int as home_goals, "
+         f"unnest(xpath('//premierLeague/Season_End_Year/Wk/game/AwayGoals/text()', xml))::int as away_goals "
+         f"from imported_documents where file_name = 'output.xml') as jogos")
     return a
 
-def datas_jogos(home, away):
-    a = (f"select dateHome from(select "
-         f"unnest(xpath('/premierLeague/Season_End_Year/Wk/game[Home=\"{home}\"][Away=\"{away}\"]/Date/text()', xml))::text "
-         f"as dateHome from imported_documents where file_name = 'output.xml' group by dateHome) as r;")
+def media_golos_equipa(equipa):
+    query = (f"select avg(golos::float) as media_golos from ("
+             f"select home_goals::int as golos from ("
+             f"select unnest(xpath('//premierLeague/Season_End_Year/Wk/game[Home=\"{equipa}\"]/HomeGoals/text()', xml)) as home_goals "
+             f"from imported_documents where file_name = 'output.xml') "
+             f"union all "
+             f"select away_goals::int as golos from ("
+             f"select unnest(xpath('//premierLeague/Season_End_Year/Wk/game[Away=\"{equipa}\"]/AwayGoals/text()', xml)) as away_goals "
+             f"from imported_documents where file_name = 'output.xml') "
+             f") as jogos")
+    return query
+
+
+def media_golos_equipa(equipa):
+    a = (
+        f"select avg(golos::float) as media_golos from ("
+        f"select unnest(xpath('//premierLeague/Season_End_Year/Wk/game[Home=\"{equipa}\"]/HomeGoals/text()', xml))::int as golos "
+        f"union all  "
+        f"select unnest(xpath('//premierLeague/Season_End_Year/Wk/game[Away=\"{equipa}\"]/AwayGoals/text()', xml))::int "
+        f") as jogos, imported_documents where file_name = 'output.xml'"
+    )
     return a
 
-def count_jogos():
-    a = (f"select unnest(xpath('count(/premierLeague/Season_End_Year/Wk/game/FTR[text()= \"H\"])',xml))::text::int as nVitoriasEmcasa,"
-    "unnest(xpath('count(/premierLeague/Season_End_Year/Wk/game/FTR[text()= \"D\"])',xml))::text::int as nEmpates,"
-         "unnest(xpath('count(/premierLeague/Season_End_Year/Wk/game/FTR[text()= \"A\"])',xml))::text::int as nVitoriasFora "
-         "from imported_documents where file_name = 'output.xml' ;"
-         )
+
+def numero_vitorias():
+    a = (f"select (xpath('count(//premierLeague/Season_End_Year/Wk/game/FTR[text()=\"H\"])', xml)::text::int)[1] as numVCasa, "
+         f"(xpath('count(//premierLeague/Season_End_Year/Wk/game/FTR[text()=\"A\"])', xml)::text::int)[1] as numVFora, "
+         f"(xpath('count(//premierLeague/Season_End_Year/Wk/game/FTR[text()=\"H\"])', xml)::text::int)[1] + "
+         f"(xpath('count(//premierLeague/Season_End_Year/Wk/game/FTR[text()=\"A\"])', xml)::text::int)[1] as totalVitorias "
+         f"from imported_documents where file_name = 'output.xml';")
     return a
+

@@ -11,12 +11,12 @@ while True:
     print("1-Converter ficheiro")
     print("2-Inserir ficheiro na base de dados")
     print("3-Eliminar Ficheiro")
-    print("4-Jogos do mundial")
-    print("5-Jogos de uma seleção")
-    print("6-Cidade e País com mais jogos")
-    print("7-Total de golos de uma seleção")
-    print("8-Total de golos do Europeu")
-    print("9-Média de golos de todos os jogos de seleções")
+    print("4-Jogos de uma equipa em casa")
+    print("5-Todos os jogos num ano")
+    print("6-Resultados dos jogos")
+    print("7-Total de golos da competição")
+    print("8-Media de golos de uma equipa")
+    print("9-Numero total de vitorias")
     print("0-Sair")
     print("\n\n")
     #try:
@@ -45,46 +45,42 @@ while True:
     elif option == 4:
         print("Equipa: ")
         equipa = input()
-        a = server.jogos_fora(equipa)
+        a = server.jogos_casa(equipa)
         aux = server.get_connection(a)
-        print("Total de jogos Fora da equipa:", aux)
+        print("Jogos da equipa em casa:", aux)
 
     elif option == 5:
-        a = server.total_vitorias()
+        print("Ano: ")
+        ano = input()
+        a = server.jogos_ano(ano)
         aux = server.get_connection(a)
-        print("Nº de vitorias por equipas:")
-        for row in aux:
-            print(row)
+        print("Jogos no ano:", aux)
 
     elif option == 6:
-        a = server.result_jogos()
+        a = server.resultado_jogos()
         aux = server.get_connection(a)
-        print("Resultados de todos os jogos:")
+        print("Resultados dos jogos:")
         for row in aux:
             print(row)
 
     elif option == 7:
-        print("Indique dois clubes")
-        print("Clube Visitado:")
-        home = input()
-        print("Clube Visitante:")
-        away = input()
-        a = server.datas_jogos(home, away)
+        a = server.total_golos()
         aux = server.get_connection(a)
-        print("Datas dos jogos")
-        for row in aux:
-            print(row)
+        print("Total de golos:")
+        print(aux)
 
     elif option == 8:
-        a = server.media_golos()
-        aux = str(server.get_connection(a))
-        print("Media de golos de todos os jogos:")
+        print("Equipa: ")
+        equipa = input()
+        a = server.media_golos_equipa(equipa)
+        aux = server.get_connection(a)
+        print("Media de golos de todos os jogos:", aux)
         print(aux)
 
     elif option == 9:
-        a = server.count_jogos()
+        a = server.numero_vitorias()
         aux = server.get_connection(a)
-        print("Nº de vitorias em casa, empates e vitorias fora")
+        print("Numero total de vitorias")
         print(aux)
 
     elif option == 0:
