@@ -8,7 +8,6 @@ def converter(filename):
     with open('/assets/eplmatches.csv') as file:
         csv_f = csv.DictReader(file)
         data = []
-
         root = Element('premierLeague')
         years = {}
 
@@ -18,7 +17,7 @@ def converter(filename):
         for num, row in enumerate(csv_f):
             if num == 20000:
                 break
-            print(row)
+
 
             # verificar se o ano existe
             season_year = row['Season_End_Year']
@@ -78,5 +77,5 @@ def converter(filename):
             yy.text = str(data)
 
         et = ElementTree(root)
-        et.write(f'{filename}.xml')
+        et.write(f'./XML/{filename}.xml')
         validator(filename)

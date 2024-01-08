@@ -39,7 +39,7 @@ def media_golos_equipa(equipa):
     return query
 
 
-def media_golos_equipa(equipa):
+"""def media_golos_equipa(equipa):
     a = (
         f"select avg(golos::float) as media_golos from ("
         f"select unnest(xpath('//premierLeague/Season_End_Year/Wk/game[Home=\"{equipa}\"]/HomeGoals/text()', xml))::int as golos "
@@ -47,7 +47,7 @@ def media_golos_equipa(equipa):
         f"select unnest(xpath('//premierLeague/Season_End_Year/Wk/game[Away=\"{equipa}\"]/AwayGoals/text()', xml))::int "
         f") as jogos, imported_documents where file_name = 'output.xml'"
     )
-    return a
+    return a"""
 
 
 def numero_vitorias():

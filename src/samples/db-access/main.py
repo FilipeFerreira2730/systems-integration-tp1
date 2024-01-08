@@ -7,16 +7,14 @@ try:
     connection = psycopg2.connect(user="is",
                                   password="is",
                                   host="is-db",
-                                  port="5432",
+                                  port="10001",
                                   database="is")
 
     with connection.cursor() as cursor:
-        print(cursor)
-        #with open('test.xml') as f:
-            #file_data = f.read()
-            #filename = "ola"
-            #a = cursor.execute("INSERT INTO imported_documents(file_name, xml) VALUES (%s, %s)", (filename, file_data))
-           # print('azeite')
+        with open('../rpc-server/XML/ols.xml') as f:
+            file_data = f.read()
+            filename = "marega"
+            a = cursor.execute("INSERT INTO imported_documents(file_name, xml) VALUES (%s, %s)", (filename, file_data))
 
 except (Exception, psycopg2.Error) as error:
     print("Failed to fetch data", error)

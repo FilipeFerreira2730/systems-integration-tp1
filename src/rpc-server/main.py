@@ -2,7 +2,7 @@ import signal, sys
 from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.server import SimpleXMLRPCRequestHandler
 from XML.converter import converter
-from XML.insertData import insertData
+from XML.insertData import insertData1
 from XML.validator import validator
 from functions.Connection import get_connection
 from XML.softDeleteExp import deleteData
@@ -35,7 +35,7 @@ with SimpleXMLRPCServer(('0.0.0.0', 9000), requestHandler=RequestHandler, allow_
     server.register_function(string_reverse)
     server.register_function(string_length)
     server.register_function(converter)
-    server.register_function(insertData)
+    server.register_function(insertData1)
     server.register_function(validator)
     server.register_function(get_connection)
     server.register_function(deleteData)

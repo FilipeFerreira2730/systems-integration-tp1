@@ -9,7 +9,7 @@ def deleteData(file_name):
         with psycopg2.connect(user="is",
                                       password="is",
                                       host="localhost",
-                                      port="5432",
+                                      port="10001",
                                       database="is") as connection:
 
             with connection.cursor() as cursor:

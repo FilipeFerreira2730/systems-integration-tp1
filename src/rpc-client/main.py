@@ -27,19 +27,20 @@ while True:
         aux = input()
         server.converter(aux)
         pass
+
     elif option == 2:
         print("Inserir ficheiro na BD")
         print("Nome do ficheiro a ler: ")
         aux = input()
         print("Nome do ficheiro na BD: ")
         aux2 = input()
-        server.insertData(aux, aux2)
+        server.insertData1(aux, aux2)
+
     elif option == 3:
         print("Delete Data")
         print("Nome do ficheiro")
         aux = input()
         server.deleteData(aux)
-
         pass
 
     elif option == 4:
